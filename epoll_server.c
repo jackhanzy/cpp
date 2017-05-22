@@ -120,7 +120,7 @@ void *thread_func(void *arg)
                 struct sockaddr_in cli_addr;
                 int cli_len = sizeof(cli_addr);
                 bzero(&cli_addr, sizeof(cli_addr));
-                int connfd;
+                int connfd = 0;
                 if ((connfd = accept(listenfd, (SA)&cli_addr, &cli_len) > 0))
                 {
                     setfl(connfd, O_NONBLOCK);
